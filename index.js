@@ -3,8 +3,12 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-
+const mongoose = require('mongoose');
 const router = require('./router');
+
+
+//DB Setup
+mongoose.connect('mongodb://dbuser:@ds037097.mlab.com:37097/momntz')
 
 
 //App Setup
