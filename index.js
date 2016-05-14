@@ -5,15 +5,17 @@ const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
 const router = require('./router');
+const cors = require('cors');
 
 
 //DB Setup
-mongoose.connect('mongodb://dbuser:@ds037097.mlab.com:37097/momntz')
+mongoose.connect('mongodb://dbuser:folsom_1@ds037097.mlab.com:37097/momntz')
 
 
 //App Setup
 app.use(morgan('combined'));
-app.use(bodyParser.json({type:'*/*'}))
+app.use(cors());
+app.use(bodyParser.json({type:'*/*'}));
 router(app);
 
 //Server Setup
